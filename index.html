@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kon Banega Developer | Audio Edition</title>
+  <title>QuizVerse | Audio Edition</title>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
@@ -70,17 +70,18 @@
 
 
 
-        .main-title {
-
-            font-size: 3rem; margin: 0;
-
-            background: linear-gradient(to bottom, #fff, var(--primary));
-
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-
-            text-transform: uppercase; letter-spacing: 5px; text-shadow: var(--glow);
-
-        }
+.main-title {
+    font-size: 3rem;
+    margin: 0;
+    background: linear-gradient(to right, #00d2ff, #9d50bb);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: var(--glow);
+}
 
 
 
@@ -165,8 +166,10 @@
 
         <div id="welcome-screen" class="active">
 
-            <h1 class="main-title">Kon Banega<br>Developer</h1>
-
+            <h1 class="main-title">QuizVerse</h1>
+<p style="color: var(--gold); letter-spacing: 4px; font-size: 0.8rem;">
+    GAMIFIED LEARNING PLATFORM
+</p>
             <p style="color: var(--gold); letter-spacing: 4px; font-size: 0.8rem;">AUDIO MODULE: ACTIVE</p>
 
             <button class="game-btn" style="margin-top: 40px; padding: 20px 60px;" onclick="initAudio(); showScreen('lang-screen')">BOOT UP</button>
