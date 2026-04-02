@@ -1,0 +1,97 @@
+{
+  "python": {
+    "beginner": [
+      {"q": "Keyword for function?", "a": ["def", "func", "define", "val"], "c": 0},
+      {"q": "Comment symbol?", "a": ["//", "#", "/*", "--"], "c": 1},
+      {"q": "List type?", "a": ["[]", "{}", "()", "<>"], "c": 0},
+      {"q": "Get length?", "a": ["size()", "count()", "len()", "length()"], "c": 2},
+      {"q": "Print function?", "a": ["echo", "log", "print", "printf"], "c": 2}
+    ],
+    "intermediate": [
+      {"q": "What is 'self'?", "a": ["Static", "Global", "Instance", "Class"], "c": 2},
+      {"q": "Error block?", "a": ["try/except", "catch", "error", "fault"], "c": 0},
+      {"q": "Merge dicts?", "a": ["combine()", "update()", "add()", "join()"], "c": 1},
+      {"q": "Lambda is?", "a": ["Loop", "Anonymous func", "Class", "List"], "c": 1},
+      {"q": "Decorator prefix?", "a": ["&", "$", "@", "!"], "c": 2}
+    ],
+    "expert": [
+      {"q": "What is GIL?", "a": ["Lock", "Memory", "Speed", "Compiler"], "c": 0},
+      {"q": "Dict lookup?", "a": ["O(n)", "O(1)", "O(log n)", "O(n^2)"], "c": 1},
+      {"q": "Metaclass?", "a": ["object", "type", "class", "meta"], "c": 1},
+      {"q": "MRO means?", "a": ["Method Resolution Order", "Manual Run", "Main Order", "Module"], "c": 0},
+      {"q": "__slots__ use?", "a": ["Speed", "Memory", "Security", "Threading"], "c": 1}
+    ]
+  },
+
+  "java": {
+    "beginner": [
+      {"q": "Owner of Java?", "a": ["Oracle", "Microsoft", "Google", "Apple"], "c": 0},
+      {"q": "Main method return type?", "a": ["int", "String", "void", "none"], "c": 2},
+      {"q": "Primitive type?", "a": ["Integer", "int", "String", "List"], "c": 1},
+      {"q": "Print statement?", "a": ["print", "println", "System.out.println", "cout"], "c": 2},
+      {"q": "Java file extension?", "a": [".java", ".class", ".jar", ".js"], "c": 0}
+    ],
+    "intermediate": [
+      {"q": "Inheritance keyword?", "a": ["extends", "implements", "gives", "takes"], "c": 0},
+      {"q": "Root class?", "a": ["Base", "Main", "Object", "System"], "c": 2},
+      {"q": "Interface?", "a": ["Can instantiate", "Cannot instantiate", "Static only", "Private only"], "c": 1},
+      {"q": "Thread safety?", "a": ["volatile", "synchronized", "final", "A & B"], "c": 3},
+      {"q": "Always runs block?", "a": ["try", "catch", "finally", "exit"], "c": 2}
+    ],
+    "expert": [
+      {"q": "JIT stands for?", "a": ["Just in Time", "Job Task", "Java Tool", "Joint"], "c": 0},
+      {"q": "Objects stored in?", "a": ["Stack", "Heap", "Register", "Disk"], "c": 1},
+      {"q": "Type Erasure in?", "a": ["Generics", "Memory", "Loops", "Security"], "c": 0},
+      {"q": "JVM GC does?", "a": ["Heap cleanup", "Speed", "Files", "Networking"], "c": 0},
+      {"q": "Default ArrayList size?", "a": ["5", "10", "15", "20"], "c": 1}
+    ]
+  },
+
+  "html": {
+    "beginner": [
+      {"q": "Largest heading?", "a": ["h6", "h1", "head", "header"], "c": 1},
+      {"q": "Link tag?", "a": ["link", "a", "href", "url"], "c": 1},
+      {"q": "Line break?", "a": ["br", "lb", "break", "hr"], "c": 0},
+      {"q": "Title tag inside?", "a": ["body", "head", "footer", "section"], "c": 1},
+      {"q": "List item?", "a": ["li", "ul", "ol", "list"], "c": 0}
+    ],
+    "intermediate": [
+      {"q": "Semantic tag?", "a": ["div", "span", "article", "b"], "c": 2},
+      {"q": "Checkbox input?", "a": ["type='check'", "type='checkbox'", "radio", "box"], "c": 1},
+      {"q": "Open in new tab?", "a": ["_self", "_parent", "_blank", "_top"], "c": 2},
+      {"q": "Character set?", "a": ["UTF-8", "ASCII", "ANSI", "None"], "c": 0},
+      {"q": "Alt attribute used for?", "a": ["Style", "Images", "Links", "JS"], "c": 1}
+    ],
+    "expert": [
+      {"q": "DOM stands for?", "a": ["Document Object Model", "Domain", "Data", "Direct"], "c": 0},
+      {"q": "SVG is?", "a": ["Vector", "Raster", "Image", "Video"], "c": 0},
+      {"q": "Audio control attribute?", "a": ["src", "controls", "play", "sound"], "c": 1},
+      {"q": "Preload resource?", "a": ["rel='preload'", "meta load", "script pre", "link pre"], "c": 0},
+      {"q": "Flexbox parent?", "a": ["display:flex", "flex-child", "grid", "block"], "c": 0}
+    ]
+  },
+
+  "cpp": {
+    "beginner": [
+      {"q": "Output command?", "a": ["cout", "printf", "print", "out"], "c": 0},
+      {"q": "Creator of C++?", "a": ["Bjarne", "Dennis", "Guido", "Brendan"], "c": 0},
+      {"q": "File extension?", "a": [".c", ".cpp", ".cc", "B & C"], "c": 3},
+      {"q": "Comment symbol?", "a": ["//", "/*", "#", "--"], "c": 0},
+      {"q": "End line?", "a": ["endl", "\\n", "none", "A & B"], "c": 3}
+    ],
+    "intermediate": [
+      {"q": "Pointer stores?", "a": ["Address", "Value", "Function", "Array"], "c": 0},
+      {"q": "Dynamic memory?", "a": ["malloc", "new", "alloc", "set"], "c": 1},
+      {"q": "Access modifier?", "a": ["public", "internal", "friend", "global"], "c": 0},
+      {"q": "Operator overloading?", "a": ["operator", "op", "over", "func"], "c": 0},
+      {"q": "this keyword?", "a": ["Instance", "Static", "Global", "Null"], "c": 0}
+    ],
+    "expert": [
+      {"q": "Polymorphism uses?", "a": ["Virtual functions", "Static", "Private", "Loops"], "c": 0},
+      {"q": "STL means?", "a": ["Standard Template Library", "Static", "System", "Simple"], "c": 0},
+      {"q": "Friend function?", "a": ["Access private", "Public", "Main", "Internal"], "c": 0},
+      {"q": "Multiple inheritance?", "a": ["Yes", "No", "Only Java", "C only"], "c": 0},
+      {"q": "Destructor syntax?", "a": ["~Class", "delete", "end", "!Class"], "c": 0}
+    ]
+  }
+}
