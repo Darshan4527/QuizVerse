@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+ <!DOCTYPE html>
 
 <html lang="en">
 
@@ -57,8 +58,7 @@
 
 
         #game-box {
-backdrop-filter: blur(20px);
--webkit-backdrop-filter: blur(20px);
+
             width: 90%; max-width: 700px; background: rgba(5, 5, 16, 0.9);
 
             backdrop-filter: blur(20px); border-radius: 20px; padding: 40px;
@@ -70,16 +70,15 @@ backdrop-filter: blur(20px);
         }
 
 
-.main-title  {
+
+.main-title {
     font-size: 3rem;
     margin: 0;
     background: linear-gradient(to right, #00d2ff, #9d50bb);
-
+    background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
     color: transparent;
-
+    -webkit-text-fill-color: transparent;
     text-transform: uppercase;
     letter-spacing: 5px;
     text-shadow: var(--glow);
@@ -272,30 +271,44 @@ backdrop-filter: blur(20px);
     </div>
 
 
-
 <script>
 
 let quizData = {};
+let audioCtx = null;
+let timerInterval;
+let timeLeft = 10;
 
-fetch("questions-full.json")
-  .then(response => response.json())
+let game = {
+    lang: '',
+    diff: '',
+    score: 0,
+    index: 0,
+    questions: []
+};
+
+// ---------------- LOAD JSON ----------------
+fetch("questions.json")
+  .then(res => res.json())
   .then(data => {
     quizData = data;
     console.log("Questions loaded successfully");
   })
-  .catch(error => {
-    console.log("Error loading JSON:", error);
+  .catch(err => {
+    console.log("Error loading JSON:", err);
   });
 
-// --- AUDIO ENGINE ---
-let timeLeft = 10;
-let timerInterval;
-let audioCtx = null;
-
+// ---------------- AUDIO INIT ----------------
 function initAudio() {
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 }
 
+// ---------------- SCREEN SWITCH ----------------
+function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+// ---------------- SOUND ----------------
 function playSound(type) {
     if (!audioCtx) return;
 
@@ -311,53 +324,46 @@ function playSound(type) {
         osc.type = 'sine';
         osc.frequency.setValueAtTime(800, now);
         osc.frequency.exponentialRampToValueAtTime(100, now + 0.1);
-        gain.gain.setValueAtTime(0.1, now);
-        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
-        osc.start(now);
-        osc.stop(now + 0.1);
-    } 
-    else if (type === 'correct') {
+    }
+
+    if (type === 'correct') {
         osc.type = 'triangle';
         osc.frequency.setValueAtTime(500, now);
         osc.frequency.exponentialRampToValueAtTime(1200, now + 0.2);
-        gain.gain.setValueAtTime(0.1, now);
-        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
-        osc.start(now);
-        osc.stop(now + 0.2);
-    } 
-    else if (type === 'wrong') {
+    }
+
+    if (type === 'wrong') {
         osc.type = 'sawtooth';
         osc.frequency.setValueAtTime(150, now);
         osc.frequency.linearRampToValueAtTime(50, now + 0.3);
-        gain.gain.setValueAtTime(0.1, now);
-        gain.gain.linearRampToValueAtTime(0.01, now + 0.3);
-        osc.start(now);
-        osc.stop(now + 0.3);
     }
+
+    gain.gain.setValueAtTime(0.1, now);
+    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+
+    osc.start(now);
+    osc.stop(now + 0.3);
 }
 
-// --- GAME LOGIC ---
-let game = { lang: '', diff: '', score: 0, index: 0, questions: [] };
-
-function showScreen(id) {
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-}
-
+// ---------------- LANGUAGE ----------------
 function pickLang(l) {
     game.lang = l;
     document.getElementById('chosen-lang-label').innerText = l.toUpperCase() + " SYSTEM";
     showScreen('diff-screen');
 }
 
+// ---------------- START QUIZ ----------------
 function startQuiz(d) {
+
     if (!quizData[game.lang]) {
         alert("Questions not loaded yet.");
         return;
     }
 
     game.diff = d;
-    game.questions = [...quizData[game.lang][game.diff]].sort(() => 0.5 - Math.random());
+
+    game.questions = [...quizData[game.lang][game.diff]]
+        .sort(() => Math.random() - 0.5);
 
     game.index = 0;
     game.score = 0;
@@ -366,17 +372,18 @@ function startQuiz(d) {
     loadQuestion();
 }
 
+// ---------------- TIMER ----------------
 function startTimer() {
     clearInterval(timerInterval);
-    timeLeft = 10;
 
+    timeLeft = 10;
     const timer = document.getElementById("timer");
-    timer.innerText = "TIME: " + timeLeft + "s";
     timer.style.color = "gold";
+    timer.innerText = `TIME: ${timeLeft}s`;
 
     timerInterval = setInterval(() => {
         timeLeft--;
-        timer.innerText = "TIME: " + timeLeft + "s";
+        timer.innerText = `TIME: ${timeLeft}s`;
 
         if (timeLeft <= 3) timer.style.color = "red";
 
@@ -387,16 +394,24 @@ function startTimer() {
     }, 1000);
 }
 
+// ---------------- LOAD QUESTION ----------------
 function loadQuestion() {
+
     startTimer();
 
+    const total = game.questions.length;
     const q = game.questions[game.index];
 
+    if (!q) {
+        showResult();
+        return;
+    }
+
     document.getElementById('progress-bar').style.width =
-        (game.index / game.questions.length) * 100 + "%";
+        ((game.index) / total) * 100 + "%";
 
     document.getElementById('q-meta').innerText =
-        `DATA_PACK: ${game.index + 1} / ${game.questions.length}`;
+        `DATA_PACK: ${game.index + 1} / ${total}`;
 
     document.getElementById('q-text').innerText = q.q;
 
@@ -412,12 +427,15 @@ function loadQuestion() {
     });
 }
 
+// ---------------- ANSWER CHECK ----------------
 function checkAnswer(choice, btn) {
+
     clearInterval(timerInterval);
 
-    const correct = game.questions[game.index].c;
-    const all = document.querySelectorAll('.option');
+    const q = game.questions[game.index];
+    const correct = q.c;
 
+    const all = document.querySelectorAll('.option');
     all.forEach(b => b.disabled = true);
 
     if (choice === correct) {
@@ -434,17 +452,21 @@ function checkAnswer(choice, btn) {
     setTimeout(() => {
         game.index++;
 
-        // ✅ FIX HERE
-        if (game.index < game.questions.length) loadQuestion();
-        else showResult();
-
+        if (game.index < game.questions.length) {
+            loadQuestion();
+        } else {
+            showResult();
+        }
     }, 1000);
 }
 
+// ---------------- AUTO FAIL ----------------
 function autoWrongAnswer() {
-    const correct = game.questions[game.index].c;
-    const all = document.querySelectorAll('.option');
 
+    const q = game.questions[game.index];
+    const correct = q.c;
+
+    const all = document.querySelectorAll('.option');
     all.forEach(b => b.disabled = true);
 
     playSound('wrong');
@@ -453,22 +475,25 @@ function autoWrongAnswer() {
     setTimeout(() => {
         game.index++;
 
-        // ✅ FIX HERE
-        if (game.index < game.questions.length) loadQuestion();
-        else showResult();
-
+        if (game.index < game.questions.length) {
+            loadQuestion();
+        } else {
+            showResult();
+        }
     }, 1000);
 }
 
+// ---------------- RESULT ----------------
 function showResult() {
+
     showScreen('result-screen');
 
-    let total = game.questions.length;
-    let accuracy = (game.score / total) * 100;
-    let wrong = total - game.score;
+    const total = game.questions.length;
+    const wrong = total - game.score;
+    const accuracy = ((game.score / total) * 100).toFixed(1);
 
     document.getElementById('res-score').innerText =
-        `ACCURACY: ${accuracy.toFixed(2)}%`;
+        `ACCURACY: ${accuracy}%`;
 
     document.getElementById('correct-count').innerText =
         "✅ Correct Answers: " + game.score;
@@ -482,18 +507,17 @@ function showResult() {
     document.getElementById('difficulty-played').innerText =
         "🧩 Level: " + game.diff.toUpperCase();
 
-    document.getElementById('accuracy-bar').style.width =
-        accuracy + "%";
+    document.getElementById('accuracy-bar').style.width = accuracy + "%";
 
     const rankTag = document.getElementById('rank-tag');
 
     let rank = "";
     let color = "";
 
-    if (accuracy >= 90) {
+    if (game.score === total) {
         rank = "SYSTEM ARCHITECT";
         color = "#ffd700";
-    } else if (accuracy >= 60) {
+    } else if (game.score >= total / 2) {
         rank = "SENIOR DEVELOPER";
         color = "#00d2ff";
     } else {
@@ -506,12 +530,15 @@ function showResult() {
     rankTag.style.color = color;
 }
 
-// Particle Effect
+// ---------------- PARTICLES ----------------
 const pCon = document.getElementById('particles');
 
-for(let i=0; i<40; i++){
+for (let i = 0; i < 40; i++) {
     const p = document.createElement('div');
-    p.style.cssText = `position:absolute; width:1px; height:1px; background:#00d2ff; top:${Math.random()*100}%; left:${Math.random()*100}%; opacity:0.4; box-shadow: 0 0 5px #00d2ff;`;
+    p.style.cssText =
+        `position:absolute;width:1px;height:1px;background:#00d2ff;
+         top:${Math.random()*100}%;left:${Math.random()*100}%;
+         opacity:0.4;box-shadow:0 0 5px #00d2ff;`;
     pCon.appendChild(p);
 }
 
@@ -519,5 +546,5 @@ for(let i=0; i<40; i++){
 
 </body>
 
-</html>
+</html> 
 
