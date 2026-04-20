@@ -5,21 +5,36 @@
       {"q": "Comment symbol?", "a": ["//", "#", "/*", "--"], "c": 1},
       {"q": "List type?", "a": ["[]", "{}", "()", "<>"], "c": 0},
       {"q": "Get length?", "a": ["size()", "count()", "len()", "length()"], "c": 2},
-      {"q": "Print function?", "a": ["echo", "log", "print", "printf"], "c": 2}
+      {"q": "Print function?", "a": ["echo", "log", "print", "printf"], "c": 2},
+      {"q": "Python file extension?", "a": [".py", ".java", ".cpp", ".html"], "c": 0},
+      {"q": "Loop keyword?", "a": ["for", "loop", "repeat", "iterate"], "c": 0},
+      {"q": "Boolean values?", "a": ["true/false", "0/1", "yes/no", "on/off"], "c": 0},
+      {"q": "Data type for decimal?", "a": ["int", "float", "string", "bool"], "c": 1},
+      {"q": "Keyword to define variable?", "a": ["var", "let", "None needed", "define"], "c": 2}
     ],
     "intermediate": [
       {"q": "What is 'self'?", "a": ["Static", "Global", "Instance", "Class"], "c": 2},
       {"q": "Error block?", "a": ["try/except", "catch", "error", "fault"], "c": 0},
       {"q": "Merge dicts?", "a": ["combine()", "update()", "add()", "join()"], "c": 1},
       {"q": "Lambda is?", "a": ["Loop", "Anonymous func", "Class", "List"], "c": 1},
-      {"q": "Decorator prefix?", "a": ["&", "$", "@", "!"], "c": 2}
+      {"q": "Decorator prefix?", "a": ["&", "$", "@", "!"], "c": 2},
+      {"q": "List comprehension returns?", "a": ["list", "dict", "set", "tuple"], "c": 0},
+      {"q": "Python uses indentation for?", "a": ["Blocks", "Speed", "Memory", "Compile"], "c": 0},
+      {"q": "Module import keyword?", "a": ["include", "import", "using", "load"], "c": 1},
+      {"q": "Type checking function?", "a": ["type()", "check()", "isType()", "verify()"], "c": 0},
+      {"q": "OOP supports?", "a": ["Encapsulation", "Only functions", "Only loops", "None"], "c": 0}
     ],
     "expert": [
       {"q": "What is GIL?", "a": ["Lock", "Memory", "Speed", "Compiler"], "c": 0},
       {"q": "Dict lookup?", "a": ["O(n)", "O(1)", "O(log n)", "O(n^2)"], "c": 1},
       {"q": "Metaclass?", "a": ["object", "type", "class", "meta"], "c": 1},
       {"q": "MRO means?", "a": ["Method Resolution Order", "Manual Run", "Main Order", "Module"], "c": 0},
-      {"q": "__slots__ use?", "a": ["Speed", "Memory", "Security", "Threading"], "c": 1}
+      {"q": "__slots__ use?", "a": ["Speed", "Memory", "Security", "Threading"], "c": 1},
+      {"q": "Garbage collection in Python?", "a": ["Automatic", "Manual", "None", "Compile time"], "c": 0},
+      {"q": "Async keyword used for?", "a": ["Concurrency", "Memory", "Loops", "Classes"], "c": 0},
+      {"q": "Deep copy module?", "a": ["copy", "deep", "clone", "dup"], "c": 0},
+      {"q": "Python is?", "a": ["Compiled", "Interpreted", "Binary", "Assembly"], "c": 1},
+      {"q": "PIP is used for?", "a": ["Packages", "Memory", "CPU", "OS"], "c": 0}
     ]
   },
 
@@ -29,21 +44,36 @@
       {"q": "Main method return type?", "a": ["int", "String", "void", "none"], "c": 2},
       {"q": "Primitive type?", "a": ["Integer", "int", "String", "List"], "c": 1},
       {"q": "Print statement?", "a": ["print", "println", "System.out.println", "cout"], "c": 2},
-      {"q": "Java file extension?", "a": [".java", ".class", ".jar", ".js"], "c": 0}
+      {"q": "Java file extension?", "a": [".java", ".class", ".jar", ".js"], "c": 0},
+      {"q": "JVM stands for?", "a": ["Java Virtual Machine", "Java Variable Model", "Joint VM", "None"], "c": 0},
+      {"q": "Class keyword?", "a": ["class", "Class", "define", "object"], "c": 0},
+      {"q": "Boolean type keyword?", "a": ["bool", "boolean", "bit", "flag"], "c": 1},
+      {"q": "Compile command?", "a": ["javac", "java", "compile", "run"], "c": 0},
+      {"q": "Java is?", "a": ["OOP", "Procedural", "Markup", "Query"], "c": 0}
     ],
     "intermediate": [
       {"q": "Inheritance keyword?", "a": ["extends", "implements", "gives", "takes"], "c": 0},
       {"q": "Root class?", "a": ["Base", "Main", "Object", "System"], "c": 2},
       {"q": "Interface?", "a": ["Can instantiate", "Cannot instantiate", "Static only", "Private only"], "c": 1},
       {"q": "Thread safety?", "a": ["volatile", "synchronized", "final", "A & B"], "c": 3},
-      {"q": "Always runs block?", "a": ["try", "catch", "finally", "exit"], "c": 2}
+      {"q": "Always runs block?", "a": ["try", "catch", "finally", "exit"], "c": 2},
+      {"q": "Package keyword?", "a": ["package", "import", "module", "include"], "c": 0},
+      {"q": "Array index starts at?", "a": ["0", "1", "-1", "10"], "c": 0},
+      {"q": "Constructor name equals?", "a": ["Class name", "method", "object", "file"], "c": 0},
+      {"q": "Exception handling keyword?", "a": ["throw", "try", "catch", "A & C"], "c": 3},
+      {"q": "final keyword means?", "a": ["constant", "loop", "object", "class only"], "c": 0}
     ],
     "expert": [
       {"q": "JIT stands for?", "a": ["Just in Time", "Job Task", "Java Tool", "Joint"], "c": 0},
       {"q": "Objects stored in?", "a": ["Stack", "Heap", "Register", "Disk"], "c": 1},
       {"q": "Type Erasure in?", "a": ["Generics", "Memory", "Loops", "Security"], "c": 0},
       {"q": "JVM GC does?", "a": ["Heap cleanup", "Speed", "Files", "Networking"], "c": 0},
-      {"q": "Default ArrayList size?", "a": ["5", "10", "15", "20"], "c": 1}
+      {"q": "Default ArrayList size?", "a": ["5", "10", "15", "20"], "c": 1},
+      {"q": "HashMap uses?", "a": ["Hashing", "Sorting", "Stack", "Queue"], "c": 0},
+      {"q": "Interface default methods added in?", "a": ["Java 8", "Java 5", "Java 1", "Java 11"], "c": 0},
+      {"q": "JVM language?", "a": ["Platform independent", "OS dependent", "Hardware", "Binary"], "c": 0},
+      {"q": "Synchronization avoids?", "a": ["Race condition", "Memory", "CPU", "Compile"], "c": 0},
+      {"q": "String immutable means?", "a": ["Cannot change", "Can change", "Delete", "Null"], "c": 0}
     ]
   },
 
@@ -53,21 +83,36 @@
       {"q": "Link tag?", "a": ["link", "a", "href", "url"], "c": 1},
       {"q": "Line break?", "a": ["br", "lb", "break", "hr"], "c": 0},
       {"q": "Title tag inside?", "a": ["body", "head", "footer", "section"], "c": 1},
-      {"q": "List item?", "a": ["li", "ul", "ol", "list"], "c": 0}
+      {"q": "List item?", "a": ["li", "ul", "ol", "list"], "c": 0},
+      {"q": "HTML stands for?", "a": ["HyperText Markup Language", "HighText", "Markup Tool", "None"], "c": 0},
+      {"q": "Paragraph tag?", "a": ["p", "para", "text", "div"], "c": 0},
+      {"q": "Image tag?", "a": ["img", "image", "src", "pic"], "c": 0},
+      {"q": "Bold tag?", "a": ["b", "strong", "A & B", "bold"], "c": 2},
+      {"q": "HTML is?", "a": ["Language", "Database", "OS", "Compiler"], "c": 0}
     ],
     "intermediate": [
       {"q": "Semantic tag?", "a": ["div", "span", "article", "b"], "c": 2},
       {"q": "Checkbox input?", "a": ["type='check'", "type='checkbox'", "radio", "box"], "c": 1},
       {"q": "Open in new tab?", "a": ["_self", "_parent", "_blank", "_top"], "c": 2},
       {"q": "Character set?", "a": ["UTF-8", "ASCII", "ANSI", "None"], "c": 0},
-      {"q": "Alt attribute used for?", "a": ["Style", "Images", "Links", "JS"], "c": 1}
+      {"q": "Alt attribute used for?", "a": ["Style", "Images", "Links", "JS"], "c": 1},
+      {"q": "Form tag used for?", "a": ["Input", "Styling", "Media", "Links"], "c": 0},
+      {"q": "CSS connects via?", "a": ["link", "script", "meta", "div"], "c": 0},
+      {"q": "ID attribute is?", "a": ["Unique", "Repeated", "Global", "None"], "c": 0},
+      {"q": "Class attribute is?", "a": ["Reusable", "Unique", "Hidden", "None"], "c": 0},
+      {"q": "Table row tag?", "a": ["tr", "td", "th", "table"], "c": 0}
     ],
     "expert": [
       {"q": "DOM stands for?", "a": ["Document Object Model", "Domain", "Data", "Direct"], "c": 0},
       {"q": "SVG is?", "a": ["Vector", "Raster", "Image", "Video"], "c": 0},
       {"q": "Audio control attribute?", "a": ["src", "controls", "play", "sound"], "c": 1},
       {"q": "Preload resource?", "a": ["rel='preload'", "meta load", "script pre", "link pre"], "c": 0},
-      {"q": "Flexbox parent?", "a": ["display:flex", "flex-child", "grid", "block"], "c": 0}
+      {"q": "Flexbox parent?", "a": ["display:flex", "flex-child", "grid", "block"], "c": 0},
+      {"q": "HTML5 introduced?", "a": ["New tags", "Old tags", "CSS", "JS"], "c": 0},
+      {"q": "Canvas used for?", "a": ["Graphics", "Text", "Database", "Server"], "c": 0},
+      {"q": "Meta tag used for?", "a": ["SEO", "Images", "Links", "JS only"], "c": 0},
+      {"q": "Iframe embeds?", "a": ["Webpage", "Image", "Video", "Text"], "c": 0},
+      {"q": "Responsive design uses?", "a": ["Media queries", "Tables", "Frames", "None"], "c": 0}
     ]
   },
 
@@ -77,21 +122,36 @@
       {"q": "Creator of C++?", "a": ["Bjarne", "Dennis", "Guido", "Brendan"], "c": 0},
       {"q": "File extension?", "a": [".c", ".cpp", ".cc", "B & C"], "c": 3},
       {"q": "Comment symbol?", "a": ["//", "/*", "#", "--"], "c": 0},
-      {"q": "End line?", "a": ["endl", "\\n", "none", "A & B"], "c": 3}
+      {"q": "End line?", "a": ["endl", "\\n", "none", "A & B"], "c": 3},
+      {"q": "C++ is?", "a": ["OOP", "Markup", "Query", "Database"], "c": 0},
+      {"q": "Main function?", "a": ["main()", "start()", "run()", "init()"], "c": 0},
+      {"q": "Header file?", "a": ["#include", "import", "using", "load"], "c": 0},
+      {"q": "Namespace used?", "a": ["std", "main", "lib", "sys"], "c": 0},
+      {"q": "Input command?", "a": ["cin", "input", "scan", "get"], "c": 0}
     ],
     "intermediate": [
       {"q": "Pointer stores?", "a": ["Address", "Value", "Function", "Array"], "c": 0},
       {"q": "Dynamic memory?", "a": ["malloc", "new", "alloc", "set"], "c": 1},
       {"q": "Access modifier?", "a": ["public", "internal", "friend", "global"], "c": 0},
       {"q": "Operator overloading?", "a": ["operator", "op", "over", "func"], "c": 0},
-      {"q": "this keyword?", "a": ["Instance", "Static", "Global", "Null"], "c": 0}
+      {"q": "this keyword?", "a": ["Instance", "Static", "Global", "Null"], "c": 0},
+      {"q": "Constructor type?", "a": ["Default", "Loop", "Return", "Void"], "c": 0},
+      {"q": "Destructor symbol?", "a": ["~", "!", "#", "$"], "c": 0},
+      {"q": "Encapsulation hides?", "a": ["Data", "Speed", "Memory", "CPU"], "c": 0},
+      {"q": "Inheritance type?", "a": ["Single", "Double", "Triple", "None"], "c": 0},
+      {"q": "Compile time polymorphism?", "a": ["Overloading", "Overriding", "Loop", "None"], "c": 0}
     ],
     "expert": [
       {"q": "Polymorphism uses?", "a": ["Virtual functions", "Static", "Private", "Loops"], "c": 0},
       {"q": "STL means?", "a": ["Standard Template Library", "Static", "System", "Simple"], "c": 0},
       {"q": "Friend function?", "a": ["Access private", "Public", "Main", "Internal"], "c": 0},
       {"q": "Multiple inheritance?", "a": ["Yes", "No", "Only Java", "C only"], "c": 0},
-      {"q": "Destructor syntax?", "a": ["~Class", "delete", "end", "!Class"], "c": 0}
+      {"q": "Destructor syntax?", "a": ["~Class", "delete", "end", "!Class"], "c": 0},
+      {"q": "Templates used for?", "a": ["Generic programming", "Loops", "Memory", "Files"], "c": 0},
+      {"q": "Virtual keyword enables?", "a": ["Runtime polymorphism", "Compile time", "Memory", "None"], "c": 0},
+      {"q": "RAII means?", "a": ["Resource management", "Loop", "Compile", "Class"], "c": 0},
+      {"q": "C++ compiled to?", "a": ["Machine code", "Bytecode", "HTML", "JSON"], "c": 0},
+      {"q": "Standard library includes?", "a": ["Containers", "Only IO", "Only math", "None"], "c": 0}
     ]
   }
 }
